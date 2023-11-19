@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('FechaDeNacimiento');
             $table->string('Asignatura');
             $table->string('Telefono');
-            $table->string('Correo')->nullable(false);
-            $table->string('Password');
+            $table->string('Correo')->unique();
+            $table->string('Password')->nullable()->default(bcrypt('secret'));;
             $table->timestamps();
         });
     }

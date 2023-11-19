@@ -26,7 +26,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('estudiante/registro',[EstudianteController::class, 'mostrarRegistro']);
 Route::post('estudiante/guardar',[EstudianteController::class, 'guardarRegistro']);
 
+Route::get('estudiante/login', [EstudianteController::class, 'mostrarFormularioLogin'])->name('estudiante.login');
+Route::post('estudiante/login', [EstudianteController::class, 'login'])->name('estudiante.login_post');
+
+Route::get('estudiante/cursos', [EstudianteController::class, 'mostrarCursos'])->name('estudiante.mostrar_cursos');
+
 Route::get('docente/registro',[DocenteController::class, 'mostrarRegistro']);
 Route::post('docente/guardar',[DocenteController::class, 'guardarRegistro']);
 
-Route::get('cursos/mostrar', [CursosController::class, 'show']);
+Route::get('docente/login', [DocenteController::class, 'mostrarFormularioLogin'])->name('docente.login');
+Route::post('docente/login', [DocenteController::class, 'login'])->name('docente.login_post');
+
+Route::get('docente/subir_curso', [DocenteController::class, 'mostrarFormularioCurso'])->name('docente.subir_curso');
+Route::post('docente/subir_curso', [DocenteController::class, 'subirCurso'])->name('docente.subir_curso_post');
+
+
